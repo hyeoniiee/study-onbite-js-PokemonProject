@@ -48,7 +48,6 @@ export default function App($app) {
   });
 
   this.setState = (newState) => {
-    this.state = newState;
     // 코드 작성
     this.state = newState;
     pokemonList.setState(this.state.pokemonList);
