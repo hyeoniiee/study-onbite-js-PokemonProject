@@ -38,8 +38,29 @@ export default function PokemonList({
     return temp;
   };
 
+  // this.render = () => {
+  //   this.$target.innerHTML = this.template();
+  // };
   this.render = () => {
     this.$target.innerHTML = this.template();
+
+    // 이미지 클릭 이벤트 연결
+    this.state.forEach((elm) => {
+      const imgElement = document.getElementById(`img-${elm.id}`);
+      if (imgElement) {
+        imgElement.addEventListener("click", () =>
+          this.handleItemClick(elm.id)
+        );
+      }
+
+      // 타입 클릭 이벤트 연결
+      const typeElement = document.getElementById(`type-${elm.id}`);
+      if (typeElement) {
+        typeElement.addEventListener("click", () =>
+          this.handleTypeClick(elm.type)
+        );
+      }
+    });
   };
 
   this.setState = (newState) => {
